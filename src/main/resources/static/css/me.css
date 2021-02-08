@@ -1,0 +1,172 @@
+/* 页面背景图片 */
+body{
+    background: url("../images/bg.png");
+}
+
+.m-padded-mini{
+    padding: 0.2em !important;
+}
+.m-padded-tiny{
+    padding: 0.3em !important;
+}
+.m-padded-tb-mini{
+    padding-top: 0.2em !important;
+    padding-bottom: 0.2em !important;
+}
+.m-padded-tb-tiny{
+    padding-top: 0.3em !important;
+    padding-bottom: 0.3em !important;
+}
+.m-padded-small{
+    padding-top: 0.5em !important;
+    padding-bottom: 0.5em !important;
+}
+.m-padded-tb{
+    padding-top: 1em !important;
+    padding-bottom: 1em !important;
+}
+.m-padded-tb-large{
+    padding-top: 2em !important;
+    padding-bottom: 2em !important;
+}
+.m-padded-tb-big{
+    padding-top: 3em !important;
+    padding-bottom: 3em !important;
+}
+.m-padded-tb-huge{
+    padding-top: 4em !important;
+    padding-bottom: 4em !important;
+}
+.m-padded-tb-massive{
+    padding-top: 5em !important;
+    padding-bottom: 5em !important;
+}
+
+/* 文章边距 */
+.m-padded-lr-responsive{
+    padding-left: 4em !important;
+    padding-right: 4em !important;
+}
+/*----------text------------*/
+.m-text{
+    font-weight: 300 !important; 
+    letter-spacing: 1px !important;
+    line-height: 1.8 !important;
+}
+/* 字大小 */
+.m-text-thin{
+    font-weight: 300 !important;
+}
+/* 字间距 */
+.m-text-spacing{
+    letter-spacing: 1px !important;
+}
+/* 行间距 */
+.m-text-lined{
+    line-height: 1.8 !important;
+}
+/* 透明度 */
+.m-opacity-mini{
+    opacity: 0.7 !important;
+}
+.m-opacity-mid{
+    opacity: 0.3 !important;
+}
+.m-opacity-big{
+    opacity: 0.1 !important;
+}
+
+/*-----------display-------------*/
+.m-inline-block{
+    display: inline-block !important;
+}
+
+/*-----------container------------*/
+.m-container{
+    max-width: 72em !important;
+    margin: auto !important;
+}
+.m-container-small{
+    max-width: 60em !important;
+    margin: auto !important;
+}
+
+/* -----------margin------------- */
+.m-margin-mini{
+    margin-top: 4px !important;
+    margin-bottom: 4px !important;
+}
+.m-margin-small{
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+.m-margin-mid{
+    margin-top: 30px !important;
+    margin-bottom: 30px !important;
+}
+.m-margin-huge{
+    margin-top: 60px !important;
+    margin-bottom: 60px !important;
+}
+
+.m-margin-huge-plus {
+    margin-top: 80px !important;
+    margin-bottom: 80px !important;
+}
+.m-margin-lr-mid{
+    margin-left: 2px !important;
+    margin-right: 20px !important;
+}
+
+/* -----------color------------- */
+.m-black{
+    color: #333 !important;
+}
+
+/*---------posision-------------- */
+.m-right-top{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+/* 网页端按钮隐藏 */
+.m-mobile-show{
+    display: none !important;
+}
+/* 手机屏幕端隐藏导航栏 */
+@media screen and (max-width: 768px){
+    .m-mobile-hide{
+        display: none !important;
+    }
+    /* 手机端按钮出现 */
+    .m-mobile-show{
+        display: block !important;
+    }
+    /*手机端文章清除边距*/
+    .m-padded-lr-responsive{
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .m-padded-lr-clear{
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+/*-------shadow----------*/
+.m-shadow-small{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+/*------position-------*/
+/* 返回顶部图标等定位 */
+.m-fixed {
+    position: fixed !important;
+    /* 数字越大 越上浮 */
+    z-index: 1 !important;
+}
+.m-right-bottom{
+    right: 0 !important;
+    bottom: 0 !important;
+}

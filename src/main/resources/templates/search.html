@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:replace="_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>您要的搜索结果在这里啊</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css">
+</head>
+
+<body>
+<!--格式化代码：alt+shift+f -->
+<!--导航  [inverted]:黑底|去掉白底 [attached]：钝化边角-->
+<nav th:replace="_fragments :: menu(1)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui teal header item">Blog</h2>
+            <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="info icon"></i>关于我</a>
+            <div class="right m-item item m-mobile-hide">
+                <div class="ui icon inverted transparent input">
+                    <input type="text" placeholder="搜索">
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 移动端导航按钮 -->
+    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+<!--中间内容-->
+<div class="m-container-small m-padded-tb-massive">
+    <div class="ui container">
+        <!-- header -->
+        <div class="ui top attached segment">
+            <div class="ui middle aligned two column grid">
+                <div class="column">
+                    <h3 class="ui teal header">搜索结果</h3>
+                </div>
+                <div class="right aligned column">
+                    共 <h3 class="ui orange header m-inline-block m-text-thin" th:text="${pageInfo.total}">14</h3> 个
+                </div>
+            </div>
+        </div>
+        <div class="ui top attached teal segment">
+            <div class="ui padded vertical segment" th:each="blog : ${pageInfo.list}">
+                <div class="ui middle aligned mobile reversed stackable grid">
+                    <!-- 左边内容 -->
+                    <div class="eleven wide column">
+                        <h3 class="ui header"><a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank"
+                                                 class="m-black" th:text="${blog.title}">“996”的背后蕴藏的什么机密？</a>
+                        </h3>
+                        <p class="m-text" th:text="|${blog.description}......|">
+                            这两天996很火爆，说啥的都有。那什么是996呢？一周工作六天，每天工作时间从早上9点到晚上9点。
+                            而且很多人都说，那些风口上的企业有很多早已经实行这样的工作制度了。
+                            那996制为什么会引起这么大的反应呢？它的背后意味着什么呢？
+                        </p>
+                        <div class="ui stackable grid">
+                            <!-- 头像、作者、浏览量等 -->
+                            <div class="eleven wide column">
+                                <div class="ui mini horizontal link list">
+                                    <div class="item">
+                                        <img src="https://picsum.photos/id/0/100/100"
+                                             th:src="@{${blog.user.avatar}}" alt=""
+                                             class="ui avatar image">
+                                        <div class="content"><a href="#" class="header" th:text="${blog.user.nickname}">贺立</a></div>
+                                    </div>
+                                    <div class="item">
+                                        <i class="calendar icon"></i>
+                                        <span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd HH:mm:ss')}">2021-01-28</span>
+                                    </div>
+                                    <div class="item">
+                                        <i class="eye icon"></i><span th:text="${blog.views}">555</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- 标签等 -->
+                            <div class="right aligned five wide column">
+                                <a href="#" target="_blank" class="ui teal basic label m-padded-tiny m-text-thin"
+                                   th:text="${blog.type.name}">认知升级</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 右边小图片 -->
+                    <div class="five wide column">
+                        <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">
+                            <img src="https://picsum.photos/id/0/800/400" th:src="@{${blog.firstPicture}}"
+                                 alt="" class="ui rounded image">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--footer-->
+        <div class="ui bottom attached segment" th:if="${pageInfo.pages}>1">
+            <div class="ui middle aligned four column grid">
+                <div class="column">
+                    <div class="ui mini black button"><a th:href="@{/}" style="color: darkmagenta">首页</a>
+                    </div>
+                </div>
+                <div class="left aligned column">
+                    <a href="#" class="ui mini teal basic button"
+                       th:href="@{/(pagenum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}"
+                       th:unless="${pageInfo.isFirstPage}">上一页</a>
+                </div>
+                <div class="right aligned column">
+                    <a href="#" class="ui mini teal basic button"
+                       th:href="@{/(pagenum=${pageInfo.hasNextPage}?${pageInfo.nextPage}:${pageInfo.pages})}"
+                       th:unless="${pageInfo.isLastPage}">下一页</a>
+                </div>
+                <div class="right aligned column">
+                    <div class="ui mini black button">
+                        <a th:href="@{/(pagenum=${pageInfo.pages})}" style="color: darkmagenta">尾页</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<br>
+<br>
+<!--底部footer-->
+<footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
+
+</footer>
+
+<!--javascript-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+<script>
+    // 给移动端右上角导航按钮绑定单击事件，可以控制选择导航栏的隐藏效果
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide')
+    });
+</script>
+</body>
+
+</html>
