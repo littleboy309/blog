@@ -62,8 +62,8 @@ public class BlogController {
     private TagService tagService;
 
     private void setTypeAndTag(Model model) {
-        model.addAttribute("types", typeService.getAllType());
-        model.addAttribute("tags", tagService.getAllTag());
+        model.addAttribute("types", typeService.list());
+        model.addAttribute("tags", tagService.list());
     }
 
     /**
@@ -76,7 +76,7 @@ public class BlogController {
             value = "pagenum") int pagenum, Model model) {
 
         PageHelper.startPage(pagenum, 5);
-        List<Blog> allBlog = blogService.getAllBlog();
+        List<Blog> allBlog = blogService.list();
         //得到分页结果对象
         PageInfo<Blog> pageInfo = new PageInfo<>(allBlog);
 
@@ -167,7 +167,7 @@ public class BlogController {
      */
     @GetMapping("/blogs/{id}/delete")
     public String deleteBlogs(@PathVariable Long id, RedirectAttributes attributes) {
-        blogService.deleteBlog(id);
+        blogService.removeById(id);
         attributes.addFlashAttribute("message", "删除成功");
         return REDIRECT_LIST;
     }

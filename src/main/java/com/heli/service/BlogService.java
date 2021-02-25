@@ -1,5 +1,6 @@
 package com.heli.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.heli.entity.Blog;
 
 import java.util.List;
@@ -11,13 +12,13 @@ import java.util.Map;
  * @author heli
  * @since JDK 1.8
  */
-public interface BlogService {
+public interface BlogService extends IService<Blog> {
 
     Blog getBlogById(Long id);
 
     Blog getDetailedBlog(Long id);
 
-    List<Blog> getAllBlog();
+//    List<Blog> getAllBlog();
 
     List<Blog> getByTypeId(Long typeId);
 
@@ -37,7 +38,7 @@ public interface BlogService {
 
     int updateBlog(Blog blog);
 
-    void deleteBlog(Long id);
+//    void deleteBlog(Long id);
 
     void updateViews(Long id);
 

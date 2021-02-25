@@ -24,11 +24,11 @@ public class TagServiceImpl extends ServiceImpl<TagMapper, Tag> implements TagSe
     @Resource
     private TagMapper tagMapper;
 
-    @Transactional(readOnly = true)
-    @Override
-    public List<Tag> getAllTag() {
-        return tagMapper.getAllTag();
-    }
+//    @Transactional(readOnly = true)
+//    @Override
+//    public List<Tag> getAllTag() {
+//        return tagMapper.getAllTag();
+//    }
 
     @Transactional(readOnly = false)
     @Override
@@ -57,12 +57,12 @@ public class TagServiceImpl extends ServiceImpl<TagMapper, Tag> implements TagSe
         return tagMapper.getTagByName(name);
     }
 
-    @Transactional(readOnly = false)
-    @Override
-    public void deleteTag(Long id) {
-        // TODO: 2021/2/2 tagandblog
-         tagMapper.deleteTag(id);
-    }
+//    @Transactional(readOnly = false)
+//    @Override
+//    public void deleteTag(Long id) {
+//        // TODO: 2021/2/2 tagandblog
+//         tagMapper.deleteTag(id);
+//    }
 
     @Transactional(readOnly = false)
     @Override

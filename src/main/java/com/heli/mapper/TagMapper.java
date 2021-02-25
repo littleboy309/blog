@@ -16,7 +16,7 @@ import java.util.List;
 @Mapper
 public interface TagMapper extends BaseMapper<Tag> {
 
-    List<Tag> getAllTag ();
+//    List<Tag> getAllTag ();
 
     int saveTag(Tag tag);
 
@@ -26,7 +26,7 @@ public interface TagMapper extends BaseMapper<Tag> {
 
     Tag getTagByName(String name);
 
-    void deleteTag(Long id);
+//    void deleteTag(Long id);
 
     void updateTag(Tag tag);
 

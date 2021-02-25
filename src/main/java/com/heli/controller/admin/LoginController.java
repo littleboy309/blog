@@ -57,6 +57,18 @@ public class LoginController {
     }
 
     /**
+     * Description: 登录首页GET重复请求可用次方法
+     * @author: heli
+     */
+    @GetMapping("/login")
+    public String login1( HttpSession session) {
+
+        session.setAttribute("user",session.getAttribute("user"));
+            return "admin/index";
+        }
+
+
+    /**
      * Description: 注销
      * @author: heli
      */

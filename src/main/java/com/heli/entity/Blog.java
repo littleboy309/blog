@@ -1,5 +1,7 @@
 package com.heli.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -84,15 +86,22 @@ public class Blog {
 
     private String description;
 
+    @TableLogic
+    private Integer deleted;
+
     /**
      * 与其他类关联属性
      */
+    @TableField(exist = false)
     private Type type;
 
+    @TableField(exist = false)
     private User user;
 
+    @TableField(exist = false)
     private List<Tag> tags = new ArrayList<>();
 
+    @TableField(exist = false)
     private List<Comment> comments = new ArrayList<>();
 
     public void init(){

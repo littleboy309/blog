@@ -5,7 +5,7 @@
 <mapper namespace="com.heli.mapper.TypeMapper">
 
     <insert id="saveType" parameterType="com.heli.entity.Type">
-        insert into blog.t_type values (#{id},#{name});
+        insert into blog.t_type values (#{id},#{name},0);
     </insert>
 
     <select id="getTypeById" resultType="com.heli.entity.Type">
@@ -29,17 +29,17 @@
         where t.id = b.type_id
     </select>
 
-    <select id="getAllType" resultType="com.heli.entity.Type">
-        select * from blog.t_type
-    </select>
+<!--    <select id="getAllType" resultType="com.heli.entity.Type">-->
+<!--        select * from blog.t_type-->
+<!--    </select>-->
 
     <select id="getTypeByName" resultType="com.heli.entity.Type">
         select * from blog.t_type where name = #{name}
     </select>
 
-    <delete id="deleteTypeById">
-        delete from blog.t_type where id = #{id}
-    </delete>
+<!--    <delete id="deleteTypeById">-->
+<!--        delete from blog.t_type where id = #{id}-->
+<!--    </delete>-->
 
     <update id="updateType" parameterType="com.heli.entity.Type">
         update blog.t_type set name = #{name} where id = #{id};

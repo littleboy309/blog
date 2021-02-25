@@ -19,7 +19,7 @@ public interface TypeService extends IService<Type> {
 
     Type getTypeById(Long id);
 
-    List<Type> getAllType();
+//    List<Type> getAllType();
 
     Type getTypeByName(String name);
 
@@ -29,5 +29,5 @@ public interface TypeService extends IService<Type> {
     void updateType(Long id,Type type);
 
 
-    void deleteTypeById(Long id);
+//    void deleteTypeById(Long id);
 }

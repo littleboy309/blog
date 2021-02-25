@@ -35,7 +35,7 @@ public class TypeController {
     @GetMapping("/types")
     public String types(@RequestParam(required = false, defaultValue = "1", value = "pagenum") int pagenum, Model model) {
         PageHelper.startPage(pagenum, 5);
-        List<Type> allType = typeService.getAllType();
+        List<Type> allType = typeService.list();
         //得到分页结果对象
         PageInfo<Type> pageInfo = new PageInfo<>(allType);
         model.addAttribute("pageInfo", pageInfo);
@@ -109,7 +109,7 @@ public class TypeController {
     @GetMapping("/types/{id}/delete")
     public String delete(@PathVariable Long id,RedirectAttributes attributes){
 
-        typeService.deleteTypeById(id);
+        typeService.removeById(id);
         attributes.addFlashAttribute("message","删除成功");
         return "redirect:/admin/types";
     }

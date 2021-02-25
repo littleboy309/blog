@@ -35,11 +35,11 @@ public class TypeServiceImpl extends ServiceImpl<TypeMapper,Type> implements Typ
         return typeMapper.getTypeById(id);
     }
 
-    @Transactional(readOnly = true)
-    @Override
-    public List<Type> getAllType() {
-        return typeMapper.getAllType();
-    }
+//    @Transactional(readOnly = true)
+//    @Override
+//    public List<Type> getAllType() {
+//        return typeMapper.getAllType();
+//    }
 
     @Transactional(readOnly = true)
     @Override
@@ -60,10 +60,10 @@ public class TypeServiceImpl extends ServiceImpl<TypeMapper,Type> implements Typ
         typeMapper.updateType(type);
     }
 
-    @Transactional(readOnly = false)
-    @Override
-    public void deleteTypeById(Long id) {
-
-        typeMapper.deleteTypeById(id);
-    }
+//    @Transactional(readOnly = false)
+//    @Override
+//    public void deleteTypeById(Long id) {
+//
+//        typeMapper.deleteTypeById(id);
+//    }
 }

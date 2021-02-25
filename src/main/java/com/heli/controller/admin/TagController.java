@@ -35,7 +35,7 @@ public class TagController {
     public String tags(@RequestParam(required = false, defaultValue = "1", value = "pagenum") int pagenum, Model model){
 
         PageHelper.startPage(pagenum, 5);
-        List<Tag> allTag = tagService.getAllTag();
+        List<Tag> allTag = tagService.list();
         //得到分页结果对象
         PageInfo<Tag> pageInfo = new PageInfo<>(allTag);
         model.addAttribute("pageInfo", pageInfo);
@@ -106,7 +106,7 @@ public class TagController {
     @GetMapping("/tags/{id}/delete")
     public String delete(@PathVariable Long id,RedirectAttributes attributes){
 
-        tagService.deleteTag(id);
+        tagService.removeById(id);
         attributes.addFlashAttribute("message","删除成功");
         return "redirect:/admin/tags";
     }

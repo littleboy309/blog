@@ -1,5 +1,6 @@
 package com.heli.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.heli.entity.Blog;
 import com.heli.entity.BlogAndTag;
 import com.heli.entity.Tag;
@@ -18,7 +19,7 @@ import java.util.*;
  * @since JDK 1.8
  */
 @Service
-public class BlogServiceImpl implements BlogService {
+public class BlogServiceImpl extends ServiceImpl<BlogMapper,Blog> implements BlogService {
 
     @Resource
     private BlogMapper blogMapper;
@@ -36,11 +37,11 @@ public class BlogServiceImpl implements BlogService {
         return blogMapper.getDetailedBlog(id);
     }
 
-    @Transactional(readOnly = true)
-    @Override
-    public List<Blog> getAllBlog() {
-        return blogMapper.getAllBlog();
-    }
+//    @Transactional(readOnly = true)
+//    @Override
+//    public List<Blog> getAllBlog() {
+//        return blogMapper.getAllBlog();
+//    }
 
     @Transactional(readOnly = true)
     @Override
@@ -129,12 +130,12 @@ public class BlogServiceImpl implements BlogService {
         return blogMapper.updateBlog(blog);
     }
 
-    @Transactional(readOnly = false)
-    @Override
-    public void deleteBlog(Long id) {
-
-        blogMapper.deleteBlog(id);
-    }
+//    @Transactional(readOnly = false)
+//    @Override
+//    public void deleteBlog(Long id) {
+//
+//        blogMapper.deleteBlog(id);
+//    }
 
     @Transactional(readOnly = false)
     @Override

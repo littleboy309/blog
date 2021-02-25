@@ -2,7 +2,7 @@ spring:            #全局配置
   thymeleaf:
     cache: false
   profiles:
-    active: pro
+    active: dev
 #  让springboot找如下目录的静态资源（不配会导致页面静态资源相对引用路径失效）或 可以模板引擎 @{}引用 默认static下 例如：@{/css/.css}
 #  mvc:
 #    static-path-pattern: /static/**

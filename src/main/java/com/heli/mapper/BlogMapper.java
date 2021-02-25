@@ -1,5 +1,6 @@
 package com.heli.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.heli.entity.Blog;
 import com.heli.entity.BlogAndTag;
 import org.apache.ibatis.annotations.Mapper;
@@ -14,7 +15,7 @@ import java.util.List;
  * @since JDK 1.8
  */
 @Mapper
-public interface BlogMapper {
+public interface BlogMapper extends BaseMapper<Blog> {
 
     /**
     * Description:
@@ -38,7 +39,7 @@ public interface BlogMapper {
      * @param
      * @return
      */
-    List<Blog> getAllBlog();
+//    List<Blog> getAllBlog();
 
     /**
      * Description: 根据类型id获取博客
@@ -134,7 +135,7 @@ public interface BlogMapper {
      * @param id
      * @return
      */
-    void deleteBlog(Long id);
+//    void deleteBlog(Long id);
 
     /**
      * Description: 更新浏览次数

@@ -1,5 +1,6 @@
 package com.heli.entity;
 
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,9 @@ public class Comment {
     private String nickname;
     private String email;
     private String content;
+
+    @TableLogic
+    private Integer deleted;
 
     /**
      * 是否为管理员评论

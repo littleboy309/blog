@@ -20,7 +20,7 @@ public interface TypeMapper extends BaseMapper<Type> {
 
     Type getTypeById(Long id);
 
-    List<Type> getAllType();
+//    List<Type> getAllType();
 
     Type getTypeByName(String name);
 
@@ -28,5 +28,5 @@ public interface TypeMapper extends BaseMapper<Type> {
 
     void updateType(Type type);
 
-    void deleteTypeById(Long id);
+//    void deleteTypeById(Long id);
 }

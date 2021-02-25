@@ -15,7 +15,7 @@ import java.util.List;
  */
 public interface TagService extends IService<Tag> {
 
-    List<Tag> getAllTag ();
+//    List<Tag> getAllTag ();
 
     int saveTag(Tag tag);
 
@@ -25,7 +25,7 @@ public interface TagService extends IService<Tag> {
 
     Tag getTagByName(String name);
 
-    void deleteTag(Long id);
+//    void deleteTag(Long id);
 
     void updateTag(Long id, Tag tag);
 

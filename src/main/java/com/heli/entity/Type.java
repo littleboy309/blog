@@ -1,5 +1,7 @@
 package com.heli.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,8 +25,12 @@ public class Type {
     private Long id;
     private String name;
 
+    @TableLogic
+    private Integer deleted;
+
     /**
      * 一个分类有多个博客
      */
+    @TableField(exist = false)
     private List<Blog> blogs = new ArrayList<>();
 }
